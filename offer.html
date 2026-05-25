@@ -47,7 +47,7 @@
             </button>
             
             <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-6">
-                Link expires in 3:00 minutes
+                Link expires in <span id="countdown" class="text-rose-600 font-extrabold text-xs">03:00</span> minutes
             </p>
         </div>
 
@@ -63,11 +63,34 @@
             document.getElementById('log-3').classList.remove('hidden');
         }, 2500);
 
-        // 4.2 Seconds loading delay
+        // Loading complete hone ke baad action screen aayegi aur timer start hoga
         setTimeout(() => {
             document.getElementById('loading-state').classList.add('hidden');
             document.getElementById('action-state').classList.remove('hidden');
+            startTimer(180); // 180 seconds = 3 minutes
         }, 4200);
+
+        // Real Countdown Timer Function
+        function startTimer(duration) {
+            let timer = duration, minutes, seconds;
+            const display = document.getElementById('countdown');
+            
+            const countdownInterval = setInterval(() => {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    clearInterval(countdownInterval);
+                    display.textContent = "00:00";
+                    // Timer khatam hone par agar button disable karna ho ya reload karna ho toh yahan handle kar sakte hain
+                }
+            }, 1000);
+        }
 
         // OGAds Redirect Link
         function redirectToCPA() {
