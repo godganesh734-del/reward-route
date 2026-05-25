@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Allocation Desk | Smart Saver</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 flex items-center justify-center min-h-screen p-4 font-sans text-slate-800 antialiased">
+
+    <div class="max-w-md w-full bg-white rounded-[2.5rem] p-8 md:p-10 shadow-2xl border border-slate-100 relative text-center">
+        
+        <div id="loading-state" class="py-4">
+            <div class="relative w-20 h-20 mx-auto mb-8">
+                <div class="absolute inset-0 rounded-full border-4 border-blue-100 animate-ping"></div>
+                <div class="relative w-20 h-20 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+            
+            <h3 class="text-2xl font-black text-slate-900 tracking-tight mb-2">Finalizing Allocation</h3>
+            <p class="text-xs font-bold text-emerald-600 uppercase tracking-widest mb-6">Securing Session Link</p>
+            
+            <div class="bg-slate-900 rounded-2xl p-4 text-left font-mono text-xs text-blue-400 space-y-2 border border-slate-800 shadow-inner min-h-[110px]">
+                <div id="log-1" class="flex items-center space-x-2">
+                    <span class="text-slate-500">></span> <span id="text-1">Parsing AI routing payload...</span>
+                </div>
+                <div id="log-2" class="hidden flex items-center space-x-2">
+                    <span class="text-slate-500">></span> <span id="text-2">Validating responsive link connection...</span>
+                </div>
+                <div id="log-3" class="hidden flex items-center space-x-2">
+                    <span class="text-slate-500">></span> <span id="text-3">Mapping single slot token to node...</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="action-state" class="hidden py-4 animate-fade-in">
+            <div class="w-20 h-20 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-6 shadow-sm">
+                ✓
+            </div>
+            
+            <h3 class="text-2xl font-black text-slate-900 tracking-tight mb-3">Voucher Reserved!</h3>
+            <p class="text-sm text-slate-500 leading-relaxed mb-8 px-2">
+                The assistant has successfully locked <span class="font-bold text-slate-800">one $25 regional promotional credit slot</span> for your session. Complete the final step to finalize the validation on the network server.
+            </p>
+            
+            <button onclick="redirectToCPA()" class="w-full bg-slate-900 hover:bg-blue-600 text-white font-black py-4 px-6 rounded-xl transition-all shadow-lg hover:shadow-xl transform active:scale-[0.99] uppercase tracking-wider text-sm">
+                Claim My Voucher Now →
+            </button>
+            
+            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-6">
+                Link expires in 3:00 minutes
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        // Terminal Logs Update
+        setTimeout(() => {
+            document.getElementById('log-2').classList.remove('hidden');
+        }, 1200);
+
+        setTimeout(() => {
+            document.getElementById('log-3').classList.remove('hidden');
+        }, 2500);
+
+        // 4.2 Seconds loading delay
+        setTimeout(() => {
+            document.getElementById('loading-state').classList.add('hidden');
+            document.getElementById('action-state').classList.remove('hidden');
+        }, 4200);
+
+        // OGAds Redirect Link
+        function redirectToCPA() {
+            window.location.href = "https://checkmyapp.store/cl/i/pqrro4"; 
+        }
+    </script>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+    </style>
+</body>
+</html>
