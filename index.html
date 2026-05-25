@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Voucher Assistant | Secure Allocation Pool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 flex items-center justify-center min-h-screen p-4 font-sans text-slate-100 antialiased">
+
+    <div class="w-full max-w-md bg-slate-800 rounded-[2.5rem] shadow-2xl border border-slate-700 overflow-hidden flex flex-col h-[600px] max-h-[90vh]">
+        
+        <div class="bg-slate-950 px-6 py-4 flex items-center space-x-4 border-b border-slate-800 shrink-0">
+            <div class="relative">
+                <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center font-black text-white text-lg tracking-wider">
+                    AI
+                </div>
+                <div class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 rounded-full border-2 border-slate-950 animate-pulse"></div>
+            </div>
+            <div>
+                <h2 class="font-black text-sm tracking-tight">Rewards Optimization Bot</h2>
+                <p class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">● Core Node v2.6: Online</p>
+            </div>
+        </div>
+
+        <div id="chat-box" class="flex-1 p-6 overflow-y-auto space-y-4 text-sm scroll-smooth">
+            
+            <div id="msg-1" class="hidden flex items-start space-x-2.5 animate-fade-in">
+                <div class="w-7 h-7 bg-blue-900 rounded-full flex items-center justify-center text-xs font-bold text-blue-300 shrink-0 mt-0.5">A</div>
+                <div class="bg-slate-950 p-4 rounded-2xl rounded-tl-none max-w-[85%] text-slate-200 font-medium">
+                    Hello! I am your automated Food Rewards Assistant. Connecting to the active promotional network...
+                </div>
+            </div>
+
+            <div id="msg-2" class="hidden flex items-start space-x-2.5 animate-fade-in">
+                <div class="w-7 h-7 bg-blue-900 rounded-full flex items-center justify-center text-xs font-bold text-blue-300 shrink-0 mt-0.5">A</div>
+                <div class="bg-slate-950 p-4 rounded-2xl rounded-tl-none max-w-[85%] text-slate-200 font-medium">
+                    Region verification check complete. Active $25 distribution allocations found for your zone. Which service do you want to access today?
+                </div>
+            </div>
+
+        </div>
+
+        <div id="options-deck" class="hidden p-6 bg-slate-950 border-t border-slate-800 space-y-2 shrink-0 animate-slide-up">
+            <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest text-center mb-3">Select a Provider to Query</p>
+            
+            <div class="grid grid-cols-2 gap-2">
+                <button onclick="selectBrand('mcdonalds')" class="bg-slate-800 hover:bg-blue-600 text-white font-bold py-3.5 px-4 rounded-xl text-xs transition-all uppercase tracking-wider border border-slate-700 hover:border-blue-500">
+                    🍔 Fast Food
+                </button>
+                <button onclick="selectBrand('starbucks')" class="bg-slate-800 hover:bg-blue-600 text-white font-bold py-3.5 px-4 rounded-xl text-xs transition-all uppercase tracking-wider border border-slate-700 hover:border-blue-500">
+                    ☕ Coffee Credits
+                </button>
+                <button onclick="selectBrand('doordash')" class="bg-slate-800 hover:bg-blue-600 text-white font-bold py-3.5 px-4 rounded-xl text-xs transition-all uppercase tracking-wider border border-slate-700 hover:border-blue-500">
+                    🚴 Food Delivery
+                </button>
+                <button onclick="selectBrand('dominos')" class="bg-slate-800 hover:bg-blue-600 text-white font-bold py-3.5 px-4 rounded-xl text-xs transition-all uppercase tracking-wider border border-slate-700 hover:border-blue-500">
+                    🍕 Pizza Package
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const chatBox = document.getElementById('chat-box');
+
+        // Automatic Chat Simulation Delays
+        window.addEventListener('DOMContentLoaded', () => {
+            // First Message appears in 1 second
+            setTimeout(() => {
+                showMessage('msg-1');
+            }, 1000);
+
+            // Second Message appears in 2.5 seconds
+            setTimeout(() => {
+                showMessage('msg-2');
+            }, 2800);
+
+            // Interface Options load up in 4 seconds
+            setTimeout(() => {
+                document.getElementById('options-deck').classList.remove('hidden');
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 4000);
+        });
+
+        function showMessage(elementId) {
+            document.getElementById(elementId).classList.remove('hidden');
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // When user chooses an option
+        function selectBrand(brandKey) {
+            // Options chip panel block hide karke processing script run karega
+            document.getElementById('options-deck').innerHTML = `
+                <div class="text-center py-4 text-xs font-mono text-blue-400 animate-pulse">
+                    Routing query through [${brandKey.toUpperCase()}] network tunnel...
+                </div>
+            `;
+            
+            // Redirect simulation after selection log completes
+            setTimeout(() => {
+                window.location.href = `offer.html?brand=${brandKey}`;
+            }, 1500);
+        }
+    </script>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        .animate-slide-up {
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+</body>
+</html>
